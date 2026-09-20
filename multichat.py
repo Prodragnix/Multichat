@@ -45,7 +45,6 @@ with st.sidebar:
             type="password",
             placeholder="hf_..."
         ).strip()
-
     temp = st.slider(
         "Temperature",
         0.0,
@@ -69,7 +68,7 @@ if st.session_state.mode=='chat':
     client = OpenAI(api_key=groq_api_key,
                     base_url="https://api.groq.com/openai/v1")
     if "openai_model" not in st.session_state:
-        st.session_state["openai_model"] = "llama-3.3-70b-versatile"
+        st.session_state["openai_model"] = "openai/gpt-oss-120b"
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
